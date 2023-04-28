@@ -1,4 +1,5 @@
-n = int(input())
-while n % 10 >= n // 10 % 10 or n > 0:
-    n = n // 10
-print('Yes' if n < 10 else 'NO')
+number = input() # вводим число как строку
+if len(set(number)) == 1: # создаем множество из цифр числа и проверяем, состоит ли оно из одного элемента
+    print("YES")
+else:
+    print("NO")
