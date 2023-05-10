@@ -1,5 +1,10 @@
+# put your python code here
 n = int(input())
-for i in range(1, n+1):
-    for j in range(1,10):
-        print(i,'+', j, '=', i + j)
-    print()
+nx = n
+if n % 2 > 0:
+    for i in range(1, n // 2 + 1):
+        print("*" * i)
+    for j in range(nx // 2 + 1, 0, -1):
+        print("*" * j)
+else:
+    print('Not a odd number')
