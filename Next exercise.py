@@ -1,10 +1,6 @@
 # put your python code here
-n = int(input())
-nx = n
-if n % 2 > 0:
-    for i in range(1, n // 2 + 1):
-        print("*" * i)
-    for j in range(nx // 2 + 1, 0, -1):
-        print("*" * j)
-else:
-    print('Not a odd number')
+for n in range(1, 14):
+    for k in range(1, 13):
+        for m in range(1, 13):
+            if 28 * n + 30 * n + 31 * m == 356:
+                print('n =', n, 'k=', k, 'm =', m )
