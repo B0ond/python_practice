@@ -1,9 +1,8 @@
-numbers = [int(input()) for _ in range(4)]
-if all(x == numbers[0] for x in numbers):
-    print("Все числа одинаковые")
-else:
-    num_count = {}
-    for num in numbers:
-        num_count[num] = num_count.get(num, 0) + 1
-    max_count = max(num_count.values())
-    print(f"Количество одинаковых чисел: {max_count}")
+ages, names = [int(input()) for _ in range(3)], 'Антон, Борис, Виктор'.split(', ')
+if ages.count(max(ages)) == 1:
+    print(names[ages.index(max(ages))], 'старше всех')
+elif ages.count(max(ages)) == 2:
+    index = ages.index(max(ages))
+    print(names[index], 'и', names[ages.index(max(ages), index + 1)], 'старше всех')               #задаем перенос строки
+elif ages.count(max(ages)) == 3:
+    print('Все одинаковы')
