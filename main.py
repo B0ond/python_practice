@@ -1,8 +1,9 @@
 matrix = [
-     [1, 2, 3, 4],
-     [5, 6, 7, 8],
-     [9, 10, 11, 12],
- ]
+    [1, 2, 3, 6, 7],
+    [22, 56, 76, 34, 34],
+    [2.5, 7.5, 7.2, 2.7, 4.4],
+    ['a', 'b', 'c', 'd', 'e']
+]
 
-transposed_matrix = [[row[i] for row in matrix] for i in range(4)]
+transposed_matrix = [[transp[i] for transp in matrix]for i in range(5)]
 print(transposed_matrix)

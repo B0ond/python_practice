@@ -5,5 +5,6 @@ else:
     num_count = {}
     for num in numbers:
         num_count[num] = num_count.get(num, 0) + 1
+        print(num_count)
     max_count = max(num_count.values())
     print(f"Количество одинаковых чисел: {max_count}")
