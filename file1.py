@@ -1,21 +1,11 @@
-# s = [['moskva', 111], ['voronezh', 111], ['cypr', 111], ['samara', 999]]
-# d = {
-#     'moskva':777,
-#     'voronezh':555,
-#     'cypr':666
-# }
-# g = dict(moskva=717, voronezh=444)
-# print(s, d, g, sep='\n')
+file = open('file.txt', encoding='utf-8')
+text_length = len(file.read())
+if text_length < 100:
+    print('Number of characters less than 100, it is:', text_length)
+else:
+    print('there are more than 100 characters here, they are here', text_length, end='')
+# print(file.read(100))
 
-person = {}
-data = "summa, faba, 2, 4, 5, 67, -2, -3, ff, zz"
-sort_data = data.split(',')
-p1 = '1: data------------------'
-p2 = '2: sort_data-------------'
-p3 = '3: join(sort_data)-------'
-p4 = '4: join(data)------------'
-print(p1, data)
-print(p2, sort_data)
-print(p3, ''.join(sort_data))
-print(p4,''.join(data))
-# print(sort_data)
+# for row in file:
+#     for letter in row():
+#         print(letter, end='')
