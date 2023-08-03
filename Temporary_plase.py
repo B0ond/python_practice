@@ -6,7 +6,7 @@ if ages.count(max(ages)) == 1:
 elif ages.count(max(ages)) == 2:
     print('ages2 ==:',ages)
     index = ages.index(max(ages))
-    print(names[index], 'и', names[ages.index(max(ages), index + 1)], 'старше всех')               #задаем перенос строки
+    print(names[index], 'и', names[ages.index(max(ages), index + 1)], 'старше всех')            # задаем перенос строки
 elif ages.count(max(ages)) == 3:
     print('ages3 ==:',ages)
     print('Все одинаковы')
