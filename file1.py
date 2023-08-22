@@ -1,9 +1,7 @@
 import random
 
-# dataformat = ['asdasd', 'bbbbbbbbb', 'cccccccccc', 'ddddddddddd', 'eeeeeeeeeeeee']
-# newobject = random.randint(1, len(dataformat))
-# dataformat.append(dataformat[newobject])
-# print(dataformat)
-
-newobject = random.randint(1, 10)
-print(type(newobject), newobject, sep='\n')
+dataformat = ['asdasd', 'bbbbbbbbb', 'cccccccccc', 'ddddddddddd', 'eeeeeeeeeeeee']
+cloneObject = dataformat
+randomNum = random.randint(0, len(dataformat) - 1)
+cloneObject.append(dataformat[randomNum])
+print(randomNum, cloneObject, sep='\n')
