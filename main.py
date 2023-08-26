@@ -5,5 +5,6 @@ matrix = [
     ['a', 'b', 'c', 'd', 'e']
 ]
 
+
 transposed_matrix = [[transp[i] for transp in matrix]for i in range(4)]
 print(transposed_matrix)
