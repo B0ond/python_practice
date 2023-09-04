@@ -1,1 +1,3 @@
-print([i for i in range(1, 60, 2)])
+import time
+print(time.strftime("%I:%M"))
+print(time.strftime("%A %p"))
