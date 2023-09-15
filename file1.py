@@ -1,7 +1,14 @@
-import random
+vowels = ['a', 'e', 'i', 'o', 'u']
+word = input('Insert a word: ')
+found = []
+counter = {}
+for letter in word:
+    if letter in vowels:
+        counter[letter] = counter.get(letter, 0) + 1
+        found.append(letter)
+print(set(found))
 
-dataformat = ['asdasd', 'bbbbbbbbb', 'cccccccccc', 'ddddddddddd', 'eeeeeeeeeeeee']
-cloneObject = dataformat
-randomNum = random.randint(0, len(dataformat) - 1)
-cloneObject.append(dataformat[randomNum])
-print(randomNum, cloneObject, sep='\n')
+#         if letter not in found:
+#             found.append(letter)
+# for i, j in zip(found, counter.count(k) for k in counter):
+#     print(i, j)
