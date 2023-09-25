@@ -1,29 +1,15 @@
-#a5+b5+c5+d5 =e5
-from datetime import datetime
-start_time = datetime.now()
-summa = 0
-power = 5
-loos = 0
-found_solution = False
-for a in range(1, 151):
-    if found_solution == True:
-        break
-    for b in range(1, 151):
-        if found_solution == True:
-            break
-        for c in range(1, 151):
-            if found_solution == True:
-                break
-            for d in range(1, 151):
-                sum = a ** power + b ** power + c ** power + d ** power
-                e = int(sum ** (0.2))
-                if sum == e ** 5:
-                    print('a =', a, 'b =', b, 'c =', c, 'd =', d,'e =', e)
-                    print('Искомое число =', a+b+c+d+e)
-                    found_solution = True
-                    break
-                else:
-                    loos += 1
-end_time = datetime.now()
-print("Неудачных решений =", loos)
-print('Duration: {}'.format(end_time - start_time))
+a, b = int(input()), int(input())
+max_summ = 0  #максимальная сумма
+max_number = 0 #указывает на число с максимальной суммой делителей
+for i in range(a, b + 1):
+    count = 0
+    for j in range(1, i + 1):
+        if i % j == 0:
+            count += j
+            if count >= max_summ:
+                max_summ == count
+                max_number = i
+
+print('count ====', count)
+print('max_summ ==', max_summ)
+print('max_number =', max_number)
