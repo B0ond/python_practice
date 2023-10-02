@@ -1,9 +1,15 @@
-a, b = int(input()), int(input())
-while a < 2:
-    a += 1
-prime = 0
-for i in range(a, b+1):
-    if i == 2 or i == 3 or i == 5 or i == 7 or i == 11:
-        print(i)
-    if i % 2 != 0 and i % 3 != 0 and i % 5 != 0 and i % 7 != 0 and i % 11 != 0 and i % (i ** (0.2)) != 0:
-        print(i)
+stroka = input()
+
+vowels = ['а', 'у', 'о', 'ы', 'и', 'э', 'я', 'ю', 'ё', 'е', 'А', 'У', 'О', 'Ы', 'И', 'Э', 'Я', 'Ю', 'Ё', 'Е']
+vow_counter = 0
+consonants = ['б', 'в', 'г', 'д', 'ж', 'з', 'й', 'к', 'л', 'м', 'н', 'п', 'р', 'с', 'т', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'Б', 'В', 'Г', 'Д', 'Ж', 'З', 'Й', 'К', 'Л', 'М', 'Н', 'П', 'Р', 'С', 'Т', 'Ф', 'Х', 'Ц', 'Ч', 'Ш', 'Щ']
+conson_counter = 0
+
+for i in stroka:
+    if i in vowels:
+        vow_counter += 1
+    if i in consonants:
+        conson_counter += 1
+
+print('Количество гласных букв равно', vow_counter)
+print('Количество согласных букв равно', conson_counter)
