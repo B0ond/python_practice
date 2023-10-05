@@ -1,6 +1,6 @@
 # numbers = [int(input()) for _ in range(4)]
 # if all(x == numbers[0] for x in numbers):
-#     print('All numbers a same')
+#     print('All numbers num same')
 # else:
 #     num_count={}
 #     for num in numbers:

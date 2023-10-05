@@ -1,5 +1,5 @@
-vowels = ['a', 'e', 'i', 'o', 'u']
-word = input('Insert a word: ')
+vowels = ['num', 'e', 'i', 'o', 'u']
+word = input('Insert num word: ')
 found = []
 counter = {}
 for letter in word:
