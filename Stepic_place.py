@@ -1,30 +1,4 @@
-spisok = [input() for _ in range(int(input()))]
-out = []
+spisok = [int(input()) for _ in range(int(input()))]
 
-print([out.extend(i) for i in spisok])
-
-
-
-
-
-
-
-
-
-
-
-
-
-# n = int(input())
-# spisok = []
-# stop_num = 0
-#
-# for i in range(n):
-#     x = input()
-#     if len(x) > 2:
-#         spisok.append(x[1])
-#     else:
-#         continue
-# result_str = ''.join(spisok)
-#
-# print(result_str)
+for i in range(len(spisok):
+    for k in range(len(spisok)):
