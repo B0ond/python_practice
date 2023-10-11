@@ -1,7 +1,13 @@
 spisok = [input() for _ in range(int(input()))]
+request = input()
+out = []
 
-out = [y for i, y in enumerate(spisok) if y not in spisok[:i]]
-print(*out, sep='\n')
+for i in spisok:
+    print('request lower ==', request.lower())
+    print('i.lower ========', i.lower())
+    print('-----------------------------')
+    if request.lower() in i.lower():
+        print(i)
 
 
 
@@ -9,5 +15,4 @@ print(*out, sep='\n')
 
 
 
-# out = [x for i, x in enumerate(spisok) if x not in spisok[:i]]
-# print(out)
+
