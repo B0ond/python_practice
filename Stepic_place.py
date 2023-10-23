@@ -1,7 +1,2 @@
-text = input().split()
-reversed = []
-
-text.sort()
-reversed = [i for i in text]
-reversed.reverse()
-print(text, reversed)
+encrypted_string = input().split()
+print(*[i[1:]+i[:1]+'ки' for i in encrypted_string])
