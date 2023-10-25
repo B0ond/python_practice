@@ -1,2 +1,4 @@
-encrypted_string = input().split()
-print(*[i[1:]+i[:1]+'ки' for i in encrypted_string])
+def draw_triangle():
+    print(*['*' * i for i in range(1, 11)], sep='\n')
+
+draw_triangle()
