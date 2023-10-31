@@ -1,8 +1,9 @@
-cipher_shift = int(input())
-shift_message = input()
+def math_blck_mag(number, quntity):
+    numeration = int(str(number) * quntity)
+    significant = 0
+    for i in range(quntity):
+        significant += number
+    return numeration/significant
 
-for i in shift_message:
-    shift_char = ord(i) - cipher_shift
-    if  shift_char < 97:
-        shift_char += 26
-    print(chr(shift_char), end='')
+print(math_blck_mag(5,4))
+
