@@ -1,6 +1,10 @@
-stroka = input().split()
+my_str = "Привет, мир!"
+# Индекс символа, который нужно заменить
+index = 6
+# Символ, которым нужно заменить
+new_char = "*"
 
-deleted_ki = ([i[:-2] for i in stroka if len(i) > 1])
-decoded_text = ([i[-1]+i[:-1] for i in deleted_ki if len(i) > 1])
+# Замена символа
+my_str = my_str.replace(my_str[index], new_char, 1)
 
-print(*decoded_text)
+print(my_str)  # Выведет: Приве* мир!
