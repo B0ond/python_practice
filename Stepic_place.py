@@ -1,16 +1,7 @@
-def find_all(target, symbol):
-    target_t = target
-    x = []
-    while symbol in target_t:
-        y = target_t.find(symbol)
-        target_t = target_t[:y] + '0' + target_t[y+1:]
-        x.append(y)
-    return x
+def is_valid_triangle(side1, side2, side3):
+    return 'YES' if a + b > c and a + c > b and b + c > a else 'NO'
 
 # считываем данные
-s = input()
-char = input()
+a, b, c = int(input()), int(input()), int(input())
 
-# вызываем функцию
-print(find_all(s, char))
-
+print(is_valid_triangle(a, b, c))
