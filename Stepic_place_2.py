@@ -1,2 +1,4 @@
-numbers1 = [int(c) for c in input().split()]
-print(numbers1)
+psw = input()
+seq = psw.split(":")
+seq = [int(el) for el in seq]
+print(seq)
