@@ -1,9 +1,13 @@
 def convert_to_python_case(text):
-    for i in range(1,len(text)):
-        if text[i].isupper():
-            text = text[:i] + '_' + text[i].lower() + text[i+1:]
-    text = text.lower()
-    return text
+    new_text = ""
+    for el in text:
+        if not el == el.lower():  # проверяем, что элемент в верхнем регистре (пропускаем цифры)
+            new_text += "_" + el.lower()
+        else:
+            new_text += el
+
+    return new_text
+
 
 # считываем данные
 txt = input()
