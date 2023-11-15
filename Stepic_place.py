@@ -1,23 +1,12 @@
-def number_to_words(num):
-    if num == 0:
-        return 'ноль'
-    elif num < 0 or num > 99:
-        return 'Число должно быть от 0 до 99'
-    else:
-        numbers = {1: 'один', 2: 'два', 3: 'три', 4: 'четыре', 5: 'пять', 6: 'шесть', 7: 'семь',
-                   8: 'восемь', 9: 'девять', 10: 'десять', 11: 'одиннадцать', 12: 'двенадцать',
-                   13: 'тринадцать', 14: 'четырнадцать', 15: 'пятнадцать', 16: 'шестнадцать',
-                   17: 'семнадцать', 18: 'восемнадцать', 19: 'девятнадцать', 20: 'двадцать',
-                   30: 'тридцать', 40: 'сорок', 50: 'пятьдесят', 60: 'шестьдесят',
-                   70: 'семьдесят', 80: 'восемьдесят', 90: 'девяносто'}
-        if num < 20:
-            return numbers[num]
-        else:
-            if num % 10 == 0:
-                return numbers[num]
-            else:
-                return numbers[num - num % 10] + ' ' + numbers[num % 10]
+def get_month(language, number):
+    '''Найти месяц на англ и рус'''
+    month = {'ru': {1: 'январь', 2: 'февраль', 3: 'март', 4: 'апрель', 5: 'май',
+                    6: 'июнь', 7: 'июль', 8: 'август', 9: 'сентябрь', 10: 'октябрь',
+                    11: 'ноябрь', 12: 'декабрь',}, 'en': {1: 'january', 2: 'february',
+                    3: 'march', 4: 'april', 5: 'may', 6: 'june', 7: 'july', 8: 'august',
+                    9: 'september', 10: 'october', 11: 'november', 12: 'december',}}
+    return month[language][number]
+lan, num = input(), int(input())
 
-n = int(input())
-
-print(number_to_words(n))
+# вызываем функцию
+print(get_month(lan, num))
