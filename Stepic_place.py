@@ -1,12 +1,18 @@
-def get_month(language, number):
-    '''Найти месяц на англ и рус'''
-    month = {'ru': {1: 'январь', 2: 'февраль', 3: 'март', 4: 'апрель', 5: 'май',
-                    6: 'июнь', 7: 'июль', 8: 'август', 9: 'сентябрь', 10: 'октябрь',
-                    11: 'ноябрь', 12: 'декабрь',}, 'en': {1: 'january', 2: 'february',
-                    3: 'march', 4: 'april', 5: 'may', 6: 'june', 7: 'july', 8: 'august',
-                    9: 'september', 10: 'october', 11: 'november', 12: 'december',}}
-    return month[language][number]
-lan, num = input(), int(input())
-
-# вызываем функцию
-print(get_month(lan, num))
+from random import randint
+def random_num_found():
+    number = randint(1, 100)
+    counter = 0
+    while True:
+        figur_num = int(input())
+        if figur_num > number:
+            print('Слишком много, попробуйте еще раз')
+            counter += 1
+            continue
+        elif figur_num < number:
+            print('Слишком мало, попробуйте еще раз')
+            counter += 1
+        elif figur_num == number:
+            print('Вы угадали, поздравляем!')
+            counter += 1
+            break
+    print(f'потребовалось {counter} попыток')
