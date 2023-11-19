@@ -1,13 +1,11 @@
-def is_magic(date):
-    date_list = date.split('.')
-    day_and_moth = int(date_list[0]) * int(date_list[1])
-    if day_and_moth == int(date_list[2])%100:
-        return True
-    else:
+def is_valid(stroka):
+    try:
+        if 1 <= int(stroka) <= 100:
+            return True
+        else:
+            return False
+    except ValueError:
         return False
 
-# считываем данные
-date = input()
-
-# вызываем функцию
-print(is_magic(date))
+x = input()
+print(is_valid(x))

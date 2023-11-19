@@ -1,5 +1,7 @@
 from random import randint
 def random_num_found():
+    print('Привет, я программа которую создал Амирам, он наделил меня способностью выбирать случайные числа!')
+    print('Я загадала случайное чимсло от 1 до 100, попробуй отгадать минимум за7 попыток =) по окончании я покажу сколько попыток у тебя было)')
     number = randint(1, 100)
     counter = 0
     while True:
@@ -16,3 +18,5 @@ def random_num_found():
             counter += 1
             break
     print(f'потребовалось {counter} попыток')
+
+random_num_found()
