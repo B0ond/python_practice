@@ -1,14 +1,15 @@
 import secrets
+#для запуска программы устновите модуль art, либо закоментить/удалить помеченну строчку в коде
 from art import tprint
 
 def get_input(prompt):
     """возвращает int число, цикл бесконечен до ввода числа"""
     while True:
         user_input = input(prompt)
-        if user_input.isdigit():
+        if user_input.isdigit() and int(user_input) > 0:
             return int(user_input)
         else:
-            print('введите пожалуйста число')
+            print('число не может быть отрицательным или нулем!')
             continue
 
 def yes_or_not(prompt):
@@ -39,7 +40,7 @@ def get_word_form(number):
     else:
         return "паролей"
 def main():
-    tprint('Created by <<<Amiram>>>')  # заставка
+    tprint('Created by <<<Amiram>>>')  # заставка (если не установлен модуль art закоментить/удалить строку)
 
     digits = '0123456789'
     lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
@@ -50,31 +51,53 @@ def main():
 
     number_of_pass = get_input('Введите количество паролей для генерации: ')
     len_of_pass = get_input('Введите длину каждого пароля: ')
+    print()
 
-    include_digit = yes_or_not('Включать ли цифры Y/N ')
-    includ_upper = yes_or_not('Включать ли прописные буквы Y/N ')
-    includ_lower = yes_or_not('Включать ли строчные буквы Y/N ')
-    includ_symbols = yes_or_not('Включать ли символы Y/N ')
-    indistinct = yes_or_not('Убрать из генерации неоднозначные символы Y/N ')
+    # chars, yes_or_not, digits, uppercase_letters, lowercase, punctuation, indistinct,
+    while True:
+        count = 0
+        include_digit = yes_or_not('Включать ли цифры Y/N: ')
+        includ_upper = yes_or_not('Включать ли прописные буквы Y/N: ')
+        includ_lower = yes_or_not('Включать ли строчные буквы Y/N: ')
+        includ_symbols = yes_or_not('Включать ли символы Y/N: ')
+        indistinct = yes_or_not('Убрать из генерации неоднозначные символы Y/N: ')
+        if include_digit:
+            chars += digits
+            count += 1
+        if includ_upper:
+            chars += uppercase_letters
+            count += 1
+        if includ_lower:
+            chars += lowercase_letters
+            count += 1
+        if includ_symbols:
+            chars += punctuation
+            count += 1
+        if indistinct:
+            translate_table_indistinct = str.maketrans('', '', indistinct_Characters)  # maketrans создает таблицу словарь со значениями символов по табице ASKII
+            chars = chars.translate(translate_table_indistinct)  # translate превращает обратно в буквы
+        if count <= 0:
+            print()
+            print('Пожалуйста включите хотя бы один набор паролей!')
+            print()
+            continue
+        else:
+            break
+    #<<<начало выбора склонений
+    text_genereted_word = 'сгенерировано'
+    text_symbol = 'символов'
+    if number_of_pass % 10 == 1:
+        text_genereted_word = 'сгенерирован'
+    if len_of_pass % 10 == 1:
+        text_symbol = 'символ'
+    #>>>конец выбора склонений
 
-    if include_digit:
-        chars += digits
-    if includ_upper:
-        chars += uppercase_letters
-    if includ_lower:
-        chars += lowercase_letters
-    if includ_symbols:
-        chars += punctuation
-    if indistinct:
-        translate_table_indistinct = str.maketrans('', '', indistinct_Characters)  # maketrans создает таблицу словарь со значениями символов по табице ASKII
-        chars = chars.translate(translate_table_indistinct)  # translate превращает обратно в буквы
-    # if number_of_pass % 10 == 1:
-    #     genereted_word = 'сгенерирован'
-    # else:
-    #     gene
-    print(f'<<<Успешно сгенерировано {number_of_pass} {get_word_form(number_of_pass)} длиной {len_of_pass} символов>>>')
+    print()
+    print('*'*100)
+    print(f'<<<Начало генерации паролей со следующей строки>>>')
     for i in range(number_of_pass):
         print(generate_password(len_of_pass, chars))
+    print(f'<<<Успешно {text_genereted_word} {number_of_pass} {get_word_form(number_of_pass)} длиной {len_of_pass} {text_symbol}>>>')
 
 if __name__ == '__main__':
     main()

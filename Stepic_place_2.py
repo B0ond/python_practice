@@ -54,12 +54,23 @@ def main():
     len_of_pass = get_input('Введите длину каждого пароля: ')
 
     def validete_input():
-        include_digit = yes_or_not('Включать ли цифры Y/N ')
-        includ_upper = yes_or_not('Включать ли прописные буквы Y/N ')
-        includ_lower = yes_or_not('Включать ли строчные буквы Y/N ')
-        includ_symbols = yes_or_not('Включать ли символы Y/N ')
-        indistinct = yes_or_not('Убрать из генерации неоднозначные символы Y/N ')
-        return [include_digit, includ_upper, includ_lower, includ_symbols, indistinct]
+        status = [False, False, False, False, False]
+        if yes_or_not('Включать ли цифры Y/N '):
+            """include_digit"""
+            status[0] = True
+        if yes_or_not('Включать ли прописные буквы Y/N '):
+            """includ_upper """
+            status[1] = True
+        if yes_or_not('Включать ли строчные буквы Y/N '):
+            """includ_lower"""
+            status[2] = True
+        if yes_or_not('Включать ли символы Y/N '):
+            """includ_symbols"""
+            status[3] = True
+        if yes_or_not('Убрать из генерации неоднозначные символы Y/N '):
+            """indistinct"""
+            status[4] = True
+        return status
 
     genereted_word = 'сгенерировано'
 
