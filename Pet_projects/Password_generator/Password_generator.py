@@ -1,5 +1,6 @@
 import secrets
-#для запуска программы устновите модуль art, либо закоментить/удалить помеченну строчку в коде
+
+#для корркетного запуска программы устновите модуль art, либо закоментить/удалить помеченну строчку в коде
 from art import tprint
 
 def get_input(prompt):
@@ -8,37 +9,32 @@ def get_input(prompt):
         user_input = input(prompt)
         if user_input.isdigit() and int(user_input) > 0:
             return int(user_input)
-        else:
-            print('число не может быть отрицательным или нулем!')
-            continue
+        print('число не может быть отрицательным или нулем!')
 
 def yes_or_not(prompt):
     """возвращает True если ввели 'Y' or 'y' и False если 'N' or 'n' """
     while True:
         user_input = input(prompt)
-        if user_input == 'Y' or user_input == 'y':
+        if user_input in ('Y', 'y'):
             return True
-        elif user_input == 'N' or user_input == 'n':
+        if user_input in ('N', 'n'):
             return False
-        else:
-            print('Введите "Y" да или "N" нет')
+        print('Введите "Y" да или "N" нет')
 
 
 def generate_password(length, chars):
-    """генератор паролей"""
     return ''.join(secrets.choice(chars) for _ in range(length))
-genereted_word = 'сгенерировано'
+
 
 def get_word_form(number):
     """меняет склонение слова <пароль>"""
     if 11 <= number <= 19:
         return 'паролей'
-    elif number % 10 == 1:
+    if number % 10 == 1:
         return 'пароль'
-    elif number % 10 in (2, 3, 4):
+    if number % 10 in (2, 3, 4):
         return 'пароля'
-    else:
-        return "паролей"
+    return "паролей"
 def main():
     tprint('Created by <<<Amiram>>>')  # заставка (если не установлен модуль art закоментить/удалить строку)
 
@@ -47,7 +43,7 @@ def main():
     uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     punctuation = '!#$%&*+-=?@^_'
     chars = ''
-    indistinct_Characters = 'il1Lo0Oo'
+    indistinct_characters = 'il1Lo0Oo'
 
     number_of_pass = get_input('Введите количество паролей для генерации: ')
     len_of_pass = get_input('Введите длину каждого пароля: ')
@@ -74,15 +70,14 @@ def main():
             chars += punctuation
             count += 1
         if indistinct:
-            translate_table_indistinct = str.maketrans('', '', indistinct_Characters)  # maketrans создает таблицу словарь со значениями символов по табице ASKII
+            translate_table_indistinct = str.maketrans('', '', indistinct_characters)  # maketrans создает таблицу словарь со значениями символов по табице ASKII
             chars = chars.translate(translate_table_indistinct)  # translate превращает обратно в буквы
         if count <= 0:
             print()
             print('Пожалуйста включите хотя бы один набор паролей!')
             print()
             continue
-        else:
-            break
+        break
     #<<<начало выбора склонений
     text_genereted_word = 'сгенерировано'
     text_symbol = 'символов'
@@ -94,8 +89,8 @@ def main():
 
     print()
     print('*'*100)
-    print(f'<<<Начало генерации паролей со следующей строки>>>')
-    for i in range(number_of_pass):
+    print('<<<Начало генерации паролей со следующей строки>>>')
+    for _ in range(number_of_pass): #генерация паролей
         print(generate_password(len_of_pass, chars))
     print(f'<<<Успешно {text_genereted_word} {number_of_pass} {get_word_form(number_of_pass)} длиной {len_of_pass} {text_symbol}>>>')
 
