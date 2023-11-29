@@ -1,18 +1,23 @@
 import secrets
-
-#для корркетного запуска программы устновите модуль art, либо закоментить/удалить помеченну строчку в коде
-from art import tprint
+from art import tprint #для корркетного запуска программы устновите модуль art, либо закоментить/удалить помеченну строчку в коде
 
 def get_input(prompt):
-    """возвращает int число, цикл бесконечен до ввода числа"""
+    """
+     цикл бесконечен до ввода числа
+    :param prompt: str вводится описание
+    :return: int либо str если это не целое число либо  целое число меньшее 1
+    """
     while True:
         user_input = input(prompt)
         if user_input.isdigit() and int(user_input) > 0:
             return int(user_input)
-        print('число не может быть отрицательным или нулем!')
-
+        print('число должно быть положительным целым больше 0!')
 def yes_or_not(prompt):
-    """возвращает True если ввели 'Y' or 'y' и False если 'N' or 'n' """
+    """
+    возвращает True если ввели 'Y' or 'y' и False если 'N' or 'n'
+    :param prompt: str вводится описание
+    :return: True/False или str если не удовлетворяет условиям
+    """
     while True:
         user_input = input(prompt)
         if user_input in ('Y', 'y'):
@@ -21,13 +26,20 @@ def yes_or_not(prompt):
             return False
         print('Введите "Y" да или "N" нет')
 
-
 def generate_password(length, chars):
+    """
+    length раз берет с chars символы, складывает и возращает полученную строку
+    :param length: int
+    :param chars: str
+    :return: str
+    """
     return ''.join(secrets.choice(chars) for _ in range(length))
-
-
 def get_word_form(number):
-    """меняет склонение слова <пароль>"""
+    """
+    меняет склонение слова <пароль>
+    :param number: int
+    :return: str
+    """
     if 11 <= number <= 19:
         return 'паролей'
     if number % 10 == 1:
@@ -48,8 +60,6 @@ def main():
     number_of_pass = get_input('Введите количество паролей для генерации: ')
     len_of_pass = get_input('Введите длину каждого пароля: ')
     print()
-
-    # chars, yes_or_not, digits, uppercase_letters, lowercase, punctuation, indistinct,
     while True:
         count = 0
         include_digit = yes_or_not('Включать ли цифры Y/N: ')
@@ -93,6 +103,5 @@ def main():
     for _ in range(number_of_pass): #генерация паролей
         print(generate_password(len_of_pass, chars))
     print(f'<<<Успешно {text_genereted_word} {number_of_pass} {get_word_form(number_of_pass)} длиной {len_of_pass} {text_symbol}>>>')
-
 if __name__ == '__main__':
     main()
