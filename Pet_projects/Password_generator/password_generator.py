@@ -1,6 +1,7 @@
 import secrets
 from art import tprint #для корркетного запуска программы устновите модуль art, либо закоментить/удалить помеченну строчку в коде
 
+
 def get_input(prompt):
     """
      цикл бесконечен до ввода числа
@@ -12,6 +13,8 @@ def get_input(prompt):
         if user_input.isdigit() and int(user_input) > 0:
             return int(user_input)
         print('число должно быть положительным целым больше 0!')
+
+
 def yes_or_not(prompt):
     """
     возвращает True если ввели 'Y' or 'y' и False если 'N' or 'n'
@@ -26,6 +29,7 @@ def yes_or_not(prompt):
             return False
         print('Введите "Y" да или "N" нет')
 
+
 def generate_password(length, chars):
     """
     length раз берет с chars символы, складывает и возращает полученную строку
@@ -34,6 +38,8 @@ def generate_password(length, chars):
     :return: str
     """
     return ''.join(secrets.choice(chars) for _ in range(length))
+
+
 def get_word_form(number):
     """
     меняет склонение слова <пароль>
@@ -88,14 +94,14 @@ def main():
             print()
             continue
         break
-    #<<<начало выбора склонений
+    # <<<начало выбора склонений
     text_genereted_word = 'сгенерировано'
     text_symbol = 'символов'
     if number_of_pass % 10 == 1:
         text_genereted_word = 'сгенерирован'
     if len_of_pass % 10 == 1:
         text_symbol = 'символ'
-    #>>>конец выбора склонений
+    # >>>конец выбора склонений
 
     print()
     print('*'*100)
