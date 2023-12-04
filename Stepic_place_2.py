@@ -101,13 +101,6 @@ def create_chars_to_pass(digits, uppercase_letters, lowercase_letters, punctuati
         return chars
 
 
-def declination(number_of_pass, len_of_pass):
-    text_genereted_word = 'сгенерировано'
-    text_symbol = 'символов'
-    if number_of_pass % 10 == 1:
-        text_genereted_word = 'сгенерирован'
-    if len_of_pass % 10 == 1:
-        text_symbol = 'символ'
 def main():
     tprint('Created by <<<Amiram>>>')  # заставка (если не установлен модуль art закоментить строку)
 
@@ -121,12 +114,13 @@ def main():
     len_of_pass = get_input('Введите длину каждого пароля: ')
     print()
     chars = create_chars_to_pass(digits, uppercase_letters, lowercase_letters, punctuation, indistinct_characters, chars)
+
     # <<<начало выбора склонений
     text_genereted_word = 'сгенерировано'
     text_symbol = 'символов'
-    if number_of_pass % 10 == 1:
+    if number_of_pass == 1:
         text_genereted_word = 'сгенерирован'
-    if len_of_pass % 10 == 1:
+    if len_of_pass % 10 == 1 and len_of_pass != 11:
         text_symbol = 'символ'
     # >>>конец выбора склонений
 
