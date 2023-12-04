@@ -33,8 +33,8 @@ def yes_or_not(prompt):
 def generate_password(length, chars):
     """
     length раз берет с chars символы, складывает и возращает полученную строку
-    :param length: int
-    :param chars: str
+    :param length: int длина пароля
+    :param chars: str список букв к паролю
     :return: str
     """
     return ''.join(secrets.choice(chars) for _ in range(length))
