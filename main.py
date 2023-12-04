@@ -1,3 +1,10 @@
-words = input("Insert num words: ")
-dict = {x: x for x in range(len(words))}
-print(dict)
+def found_number(number: str):
+    numerator = ''
+    denominator = 0
+    for i in range(int(number)):
+        numerator += '1'
+        denominator += 1
+    return int(numerator) / denominator
+
+x = input()
+print(found_number(x))
