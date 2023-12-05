@@ -1,12 +1,10 @@
 import secrets
 from art import tprint #для корркетного запуска программы устновите модуль art, либо закоментить/удалить помеченну строчку в коде
-
-
 def get_input(prompt):
     """
      цикл бесконечен до ввода числа
     :param prompt: str вводится описание
-    :return: int либо str если это не целое число либо  целое число меньшее 1
+    :return: int
     """
     while True:
         user_input = input(prompt)
@@ -19,7 +17,7 @@ def yes_or_not(prompt):
     """
     возвращает True если ввели 'Y' or 'y' и False если 'N' or 'n'
     :param prompt: str вводится описание
-    :return: True/False или str если не удовлетворяет условиям
+    :return: True/False
     """
     while True:
         user_input = input(prompt)
@@ -48,58 +46,94 @@ def get_word_form(number):
     """
     if 11 <= number <= 19:
         return 'паролей'
-    if number % 10 == 1:
+    if number == 1:
         return 'пароль'
     if number % 10 in (2, 3, 4):
         return 'пароля'
     return "паролей"
+
+
+def validete_input():
+    """
+    возвращает список из 5 булевых значений
+    :return:
+    """
+    status = [False, False, False, False, False]
+    if yes_or_not('Включать ли цифры Y/N '):
+        status[0] = True
+    if yes_or_not('Включать ли прописные буквы Y/N '):
+        status[1] = True
+    if yes_or_not('Включать ли строчные буквы Y/N '):
+        status[2] = True
+    if yes_or_not('Включать ли символы Y/N '):
+        status[3] = True
+    if yes_or_not('Убрать из генерации неоднозначные символы Y/N '):
+        status[4] = True
+    return status
+
+
+def create_chars_to_pass(digits, uppercase_letters, lowercase_letters, punctuation, indistinct_characters, chars):
+    """
+    Вносит нужные набры символов в строку chars
+    :param digits: str
+    :param uppercase_letters: str
+    :param lowercase_letters: str
+    :param punctuation: str
+    :param indistinct_characters: str
+    :param chars: str
+    :return: str
+    """
+    while True:
+        validate = validete_input()
+        count = 0  # считаем количество наборов паролей
+        if validate[0]:
+            chars += digits
+            count += 1
+        if validate[1]:
+            chars += uppercase_letters
+            count += 1
+        if validate[2]:
+            chars += lowercase_letters
+            count += 1
+        if validate[3]:
+            chars += punctuation
+            count += 1
+        if validate[4]:
+            translate_table_indistinct = str.maketrans('', '',
+                                                       indistinct_characters)  # maketrans создает таблицу словарь со значениями символов по табице ASKII
+            chars = chars.translate(translate_table_indistinct)  # translate превращает обратно в буквы
+        if count <= 0:  # если 0 то не один из наборов паролей не было введено
+            print()
+            print('Пожалуйста включите хотя бы один набор паролей!')
+            print()
+            continue
+        return chars
+
+
 def main():
-    tprint('Created by <<<Amiram>>>')  # заставка (если не установлен модуль art закоментить/удалить строку)
+    """
+    Точка входа
+    :return: ничего не возвращает
+    """
+    tprint('Created by <<<Amiram>>>')  # заставка (если не установлен модуль art закоментить строку)
 
     digits = '0123456789'
     lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
     uppercase_letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
     punctuation = '!#$%&*+-=?@^_'
-    chars = ''
+    chars = ''  # строка куда будут вносистя буквы для пароля
     indistinct_characters = 'il1Lo0Oo'
-
     number_of_pass = get_input('Введите количество паролей для генерации: ')
     len_of_pass = get_input('Введите длину каждого пароля: ')
     print()
-    while True:
-        count = 0
-        include_digit = yes_or_not('Включать ли цифры Y/N: ')
-        includ_upper = yes_or_not('Включать ли прописные буквы Y/N: ')
-        includ_lower = yes_or_not('Включать ли строчные буквы Y/N: ')
-        includ_symbols = yes_or_not('Включать ли символы Y/N: ')
-        indistinct = yes_or_not('Убрать из генерации неоднозначные символы Y/N: ')
-        if include_digit:
-            chars += digits
-            count += 1
-        if includ_upper:
-            chars += uppercase_letters
-            count += 1
-        if includ_lower:
-            chars += lowercase_letters
-            count += 1
-        if includ_symbols:
-            chars += punctuation
-            count += 1
-        if indistinct:
-            translate_table_indistinct = str.maketrans('', '', indistinct_characters)  # maketrans создает таблицу словарь со значениями символов по табице ASKII
-            chars = chars.translate(translate_table_indistinct)  # translate превращает обратно в буквы
-        if count <= 0:
-            print()
-            print('Пожалуйста включите хотя бы один набор паролей!')
-            print()
-            continue
-        break
+    chars = create_chars_to_pass(digits, uppercase_letters, lowercase_letters, punctuation, indistinct_characters, chars)
+
     # <<<начало выбора склонений
     text_genereted_word = 'сгенерировано'
     text_symbol = 'символов'
-    if number_of_pass % 10 == 1:
+    if number_of_pass == 1:
         text_genereted_word = 'сгенерирован'
-    if len_of_pass % 10 == 1:
+    if len_of_pass == 1:
         text_symbol = 'символ'
     # >>>конец выбора склонений
 
