@@ -25,7 +25,7 @@
 Клонируйте репозиторий, перейдите в ***pet_projects*** далее ***password_generator***
 
 ```
-git clone https://github.com/B0ond/python_practice.git
+git clone https://github.com/B0ond/pet_projects/password_generator
 ```
 ### примечение
 в начале импортируется модуль ***art*** для визуального оформление командной строки,
