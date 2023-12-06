@@ -1,5 +1,7 @@
 import secrets
 from art import tprint #для корркетного запуска программы устновите модуль art, либо закоментить/удалить помеченну строчку в коде
+
+
 def get_input(prompt):
     """
      цикл бесконечен до ввода числа
@@ -140,8 +142,11 @@ def main():
     print()
     print('*'*100)
     print('<<<Начало генерации паролей со следующей строки>>>')
-    for _ in range(number_of_pass): #генерация паролей
+    for _ in range(number_of_pass):  # генерация паролей
         print(generate_password(len_of_pass, chars))
-    print(f'<<<Успешно {text_genereted_word} {number_of_pass} {get_word_form(number_of_pass)} длиной {len_of_pass} {text_symbol}>>>')
+    print(f'<<<Успешно {text_genereted_word} {number_of_pass} {get_word_form(number_of_pass)}'
+          f' длиной {len_of_pass} {text_symbol}>>>')
+
+
 if __name__ == '__main__':
     main()
