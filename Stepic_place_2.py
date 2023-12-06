@@ -46,7 +46,7 @@ def get_word_form(number):
     """
     if 11 <= number <= 19:
         return 'паролей'
-    if number % 10 == 1:
+    if number == 1:
         return 'пароль'
     if number % 10 in (2, 3, 4):
         return 'пароля'
@@ -120,15 +120,18 @@ def main():
     text_symbol = 'символов'
     if number_of_pass == 1:
         text_genereted_word = 'сгенерирован'
-    if len_of_pass % 10 == 1 and len_of_pass != 11:
+    if len_of_pass == 1:
         text_symbol = 'символ'
     # >>>конец выбора склонений
 
     print()
     print('*'*100)
     print('<<<Начало генерации паролей со следующей строки>>>')
-    for _ in range(number_of_pass): #генерация паролей
+    for _ in range(number_of_pass):  # генерация паролей
         print(generate_password(len_of_pass, chars))
-    print(f'<<<Успешно {text_genereted_word} {number_of_pass} {get_word_form(number_of_pass)} длиной {len_of_pass} {text_symbol}>>>')
+    print(f'<<<Успешно {text_genereted_word} {number_of_pass} {get_word_form(number_of_pass)}'
+          f' длиной {len_of_pass} {text_symbol}>>>')
+
+
 if __name__ == '__main__':
     main()
