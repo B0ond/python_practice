@@ -113,10 +113,7 @@ def create_chars_to_pass(digits, uppercase_letters, lowercase_letters, punctuati
 
 
 def main():
-    """
-    Точка входа
-    :return: ничего не возвращает
-    """
+    """ Точка входа """
     tprint('Created by <<<Amiram>>>')  # заставка (если не установлен модуль art закоментить строку)
 
     digits = '0123456789'
