@@ -56,43 +56,49 @@ def step(text_lang_variable):
         print(f'Число должно быть положительным целым в пределах от 1 до {y}')
 
 
-def alfabet(text_lang_variable):
-    if text_lang_variable is True:  # если True то Русский
-        abc = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
-        ABC = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-    elif text_lang_variable is False:  # если False то Английский
-        abc = 'abcdefghijklmnopqrstuvwxyz'
-        ABC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
-    return [abc, ABC]  # [0] строчные [1] заглавные
-
 def caesar_cipher(direction_variable, text_lang_variable, step_variable, text):
     """
     функция шифрования
-    :return: должна возвращать шифрованный или дешифрованный пароль
+    :return:возвращает шифрованный или дешифрованный пароль
     """
     if text_lang_variable is True:  # если True то Русский
         abc = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
         ABC = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+        mosch = 32
     elif text_lang_variable is False:  # если False то Английский
         abc = 'abcdefghijklmnopqrstuvwxyz'
         ABC = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        mosch = 26
     result = ''
-    if direction_variable() is True:  # если True то шифровать
+
+    if direction_variable is True:  # если True то шифровать
         for i in text:
             if i.isalpha() and i.islower():
-                result +=  # тут остановился
+                result += abc[(abc.find(i) + step_variable) % mosch]
+            elif i.isalpha() and i.isupper():
+                result += ABC[(ABC.find(i) + step_variable) % mosch]
+            else:
+                result += i
+    if direction_variable is False: # если False то дешифровать
+        for i in text:
+            if i.isalpha() and i.islower():
+                result += abc[(abc.find(i) - step_variable) % mosch]
+            elif i.isalpha() and i.isupper():
+                result += ABC[(ABC.find(i) - step_variable) % mosch]
+            else:
+                result += i
 
-    return direction_variable, text_lang_variable, step_variable, text
+    return result
 
 
 def main():
     """main function"""
-    print("Caeser's cipher")
-    direction_variable = direction()
-    text_lang_variable = text_lang()
-    step_variable = step(text_lang_variable)
-    text = input('Введите текст: ')
-    print(caesar_cipher(direction_variable, text_lang_variable, step_variable, text))
+    print("Caeser's cipher")  # шапка
+    direction_variable = direction()  # направление свига
+    text_lang_variable = text_lang()  # выбранный язык
+    step_variable = step(text_lang_variable)  # сдвиг
+    text = input('Введите текст: ')  # текст для обработки
+    print(caesar_cipher(direction_variable, text_lang_variable, step_variable, text))  #вывод текста
 
 
 if __name__ == '__main__':
