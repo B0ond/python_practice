@@ -1,3 +1,6 @@
+from spellchecker import SpellChecker
+
+spell_en = SpellChecker(language='en')
 def direction():
     """
     выбор шифровать или дешифровать с защитой от 'дурака'
@@ -95,10 +98,14 @@ def main():
     """main function"""
     print("Caeser's cipher")  # шапка
     direction_variable = direction()  # направление свига
-    text_lang_variable = text_lang()  # выбранный язык
+    text_lang_variable = text_lang()# выбранный язык
+    if text_lang_variable:
+        spell = SpellChecker(language='ru')
+    else:
+        spell = SpellChecker(language='en')
     step_variable = step(text_lang_variable)  # сдвиг
     text = input('Введите текст: ')  # текст для обработки
-    print(caesar_cipher(direction_variable, text_lang_variable, step_variable, text))  #вывод текста
+    print(caesar_cipher(direction_variable, text_lang_variable, step_variable, text))  #вывод функции шифрования
 
 
 if __name__ == '__main__':
