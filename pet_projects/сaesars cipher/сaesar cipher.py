@@ -142,7 +142,8 @@ def main():
     text = input('Введите текст: ')  # текст для обработки
     if known_or_not_variable is False:
         print(caesar_cipher_main(direction_variable, step_variable, text, abc, ABC, mosch))  #вывод функции шифрования
-    print(f' ключь равен {find_key(text, spell, direction_variable, abc, ABC, mosch)}')
+    else:
+        print(f' ключь равен {1+find_key(text, spell, False, abc, ABC, mosch)}')
 
 if __name__ == '__main__':
     main()
