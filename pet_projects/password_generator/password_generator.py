@@ -102,7 +102,8 @@ def create_chars_to_pass(digits, uppercase_letters, lowercase_letters, punctuati
             count += 1
         if validate[4]:
             translate_table_indistinct = str.maketrans('', '',
-                                                       indistinct_characters)  # maketrans создает таблицу словарь со значениями символов по табице ASKII
+                                                       indistinct_characters)  # maketrans создает таблицу словарь со
+            # значениями символов по табице ASKII
             chars = chars.translate(translate_table_indistinct)  # translate превращает обратно в буквы
         if count <= 0:  # если 0 то не один из наборов паролей не было введено
             print()
@@ -125,7 +126,8 @@ def main():
     number_of_pass = get_input('Введите количество паролей для генерации: ')
     len_of_pass = get_input('Введите длину каждого пароля: ')
     print()
-    chars = create_chars_to_pass(digits, uppercase_letters, lowercase_letters, punctuation, indistinct_characters, chars)
+    chars = create_chars_to_pass(digits, uppercase_letters, lowercase_letters, punctuation, indistinct_characters,
+                                 chars)
 
     # <<<начало выбора склонений
     text_genereted_word = 'сгенерировано'
