@@ -95,7 +95,7 @@ def find_key(text, spell, direction_variable, abc, ABC, mosch):
         # в переменную входит расшифровка с ключом key
         decoded_text_arr = decoded_text.split()  # делаем список из слов
         len_decoded_text_arr = len(decoded_text_arr)  # длина списка
-        res = 0  # переменная для подсчета количества вхождений
+        res = 0  # подсчет количества вхождений
         for j in range(len_decoded_text_arr):  # пробегаемся по словам
             if decoded_text_arr[j] in spell:  # если слово правильное орфографически
                 res += 1                      # то записываем в res
@@ -113,7 +113,7 @@ def get_language_params(text_lang_variable):
     if text_lang_variable is True:  # если True-то Русский
         abc = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
         ABC = "АБВГДЕЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
-        spell = SpellChecker(language='ru')  # датасет сРусскими словами для сравнения правильности слов
+        spell = SpellChecker(language='ru')  # датасет с Русскими словами для сравнения правильности слов
         mosch = 32
     elif text_lang_variable is False:  # если False-то Английский
         abc = 'abcdefghijklmnopqrstuvwxyz'
@@ -126,8 +126,7 @@ def get_language_params(text_lang_variable):
 def main():
     """main function"""
     tprint(" Caesar's cipher - created by Amiram!")  # шапка
-
-    direction_variable = direction()  # направление сдвига False дешифровать True шифровать
+    direction_variable = direction()  # False дешифровать True шифровать
     text_lang_variable = text_lang()  # выбранный язык
     abc, ABC, spell, mosch = get_language_params(text_lang_variable)
     if direction_variable is True:  # False дешифровать True шифровать
