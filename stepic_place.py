@@ -11,3 +11,7 @@ class Cat():
         self.weight = weight
         self.paws_color = paws_color
 
+
+a = Cat(10, 'mail', 'maukun', 'balck', 'Blue', 32, 10, 'pig')
+
+print(a.age)
