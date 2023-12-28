@@ -1,3 +1,4 @@
+
 from random import randint
 
 the_right_num = 100

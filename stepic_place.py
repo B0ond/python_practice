@@ -1,6 +1,6 @@
 class Cat():
     """описание кота"""
-    def __init__(self, age, gender, breed, coat, eye_color, tail, weight, paws_color):
+    def __init__(self, age: int, gender, breed, coat, eye_color, tail, weight, paws_color):
         """свойства кота"""
         self.age = age
         self.gender = gender
