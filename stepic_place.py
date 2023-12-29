@@ -2,7 +2,7 @@ class Cat():
     """описание кота"""
     def __init__(self, age: int, gender, breed, coat, eye_color, tail, weight, paws_color):
         """свойства кота"""
-        self.age = age
+        self._age = age
         self.gender = gender
         self.breed = breed
         self.coat = coat
@@ -12,6 +12,7 @@ class Cat():
         self.paws_color = paws_color
 
 
+
 a = Cat(10, 'mail', 'maukun', 'balck', 'Blue', 32, 10, 'pig')
 
-print(a.age)
+print(a._age)
