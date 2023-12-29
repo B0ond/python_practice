@@ -1,18 +1,15 @@
-class Cat():
-    """описание кота"""
-    def __init__(self, age: int, gender, breed, coat, eye_color, tail, weight, paws_color):
-        """свойства кота"""
-        self._age = age
-        self.gender = gender
-        self.breed = breed
-        self.coat = coat
-        self.eye_color = eye_color
-        self.tail = tail
-        self.weight = weight
-        self.paws_color = paws_color
 
+class Solution(object):
+    def twoSum(self, nums, target):
+        hash_set = {}
+        for i, num in enumerate(nums):
+            if target - num in hash_set:
+                return [hash_set[target - num], i]
+            hash_set[num] = i
 
+out = Solution()
 
-a = Cat(10, 'mail', 'maukun', 'balck', 'Blue', 32, 10, 'pig')
-
-print(a._age)
+try:
+    print(out.twoSum([3, 2, 4, 1, 2, 3, 5], 9))
+except IndexError:
+    print("Out of range")
