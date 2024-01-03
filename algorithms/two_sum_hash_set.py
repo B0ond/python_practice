@@ -17,7 +17,7 @@ class Solution(object):
         hash_set = []
         for i, enum_value in enumerate(nums):
             if target - enum_value in hash_set:
-                return [target - enum_value, nums[i]]
+                return [nums.index(target - enum_value), i]
             hash_set.append(enum_value)
 
 
