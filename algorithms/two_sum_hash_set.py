@@ -1,4 +1,4 @@
-# дан массив неупорядочных чисел [1, 2, 4, 12, 6, 3, 7, 90, 5, 2, 0, 4] и число k
+# дан массив неупорядоченных чисел [1, 2, 4, 12, 6, 3, 7, 90, 5, 2, 0, 4] и число k
 # нужно найти число из массива в сумме дающие k
 
 
@@ -21,6 +21,8 @@ class Solution(object):
             hash_set.append(enum_value)
 
 
+arr = [1, 32, 33, 12, 44, 3, 7, 90, 5, 5, 0, 4]
+k = 9
 out = Solution()
-print(out.twoSumIndex([1, 32, 33, 12, 44, 3, 7, 90, 5, 5, 0, 4], 9))
-print(out.twoSumValues([1, 32, 33, 12, 44, 3, 7, 90, 5, 5, 0, 4], 9))
+print(out.twoSumIndex(arr, k))
+print(out.twoSumValues(arr, k))

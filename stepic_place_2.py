@@ -1,34 +1,42 @@
-class Point:
-    MAX_COORD = 100
-    MIN_COORD = 0
-    def __init__(self, x=0, y=0):
-        if self.__check_value(x) and self.__check_value(y):
-            self.__x = x
-            self.__y = y
-
+class Calculator:
+    HEX_ALFABET = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"]
     @classmethod
-    def __check_value(cls, x):
-        return type(x) in (int, float)
+    def check_value(cls, x):
+        cls.x = x
+        if not isinstance(x, int) or x < 0:
+            return False
 
-    def set_coords(self, x, y):
-        if self.__check_value(x) and self.__check_value(y):
-            self.__x = x
-            self.__y = y
-        else:
-            raise  ValueError('Координаты должны быть числами')
+    def convert_to_2_digit(self, decimal):
+        if self.check_value(decimal):
+            raise ValueError('Введенное число должно быть целым положительным числом и больше 0!')
+        out = []
+        while decimal > 0:
+            binary = decimal % 2
+            out.append(binary)
+            decimal //= 2
+        return ''.join(map(str, out[::-1]))
 
-    @classmethod
-    def set_bound(cls, new_min_coord):
-        cls.MIN_COORD = new_min_coord
+    def convert_to_16_digit(self, decimal):
+        if self.check_value(decimal):
+            raise ValueError('Введенное число должно быть целым положительным числом и больше 0!')
+        out = []
+        while decimal > 0:
+            hexadecimal = decimal % 16
+            out.insert(0, self.HEX_ALFABET[hexadecimal])
+            decimal //= 16
+        return ''.join(out)
 
-    def get_coords(self):
-        return self.__x, self.__y
 
+out_line = Calculator()
+while True:
+    # try:
+    name = input("Выберите в какую систему перевести десятичное число 'bin/hex': ")
+    if name == 'bin':
+        x = int(input('Введите число: '))
+        print(f'Число {x} в двоичной системе будет равно {out_line.convert_to_2_digit(x)}')
+    elif name == 'hex':
+        x = int(input('Введите число: '))
+        print(f'Число {x} в шестнадцатеричной системе будет равно {out_line.convert_to_16_digit(x)}')
+    else:
+        print('Введите bin или hex')
 
-pt = Point()
-
-pt.set_coords(6, 5)
-print(pt.get_coords())
-
-pt = Point.set_bound(4)
-print(pt.__dir__)
