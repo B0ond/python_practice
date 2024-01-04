@@ -2,22 +2,21 @@
 # нужно найти число из массива в сумме дающие k
 
 
-
-
 class Solution(object):
-    """HashSet solution"""
-    def twoSumIndex(self, nums, target):
+    """метод для поиска индексов"""
+    def twoSumIndex(self, nums: list[int], target: int) -> list[int]:
         num_set = {}
         for i, num in enumerate(nums):
             if target - num in num_set:
                 return [num_set[target - num], i]
             num_set[num] = i
 
-    def twoSumValues(self, nums, target):
+    def twoSumValues(self, nums: list[int], target: int) -> list[int]:
+        """метод для поиска значений"""
         hash_set = []
-        for i, enum_value in enumerate(nums):
+        for enum_value in nums:
             if target - enum_value in hash_set:
-                return [nums.index(target - enum_value), i]
+                return [(target - enum_value), enum_value]
             hash_set.append(enum_value)
 
 

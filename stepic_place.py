@@ -2,25 +2,25 @@
 # нужно найти число из массива в сумме дающие k
 
 
+class Solution:
+    @staticmethod
+    def find_sum_index(arr: list[int], k: int) -> list[int]:
+        set_num = {}
+        for idx, values in enumerate(arr):
+            if k - values in set_num:
+                return [set_num[k - values], idx]
+            set_num[values] = idx
+
+    @staticmethod
+    def find_sum(arr: list[int], k: int) -> list[int]:
+        set_num = []
+        for values in arr:
+            if k - values in set_num:
+                return [values, k-values]
+            set_num.append(values)
 
 
-class Solution(object):
-    """HashSet solution"""
-    def twoSumIndex(self, nums, target):
-        num_set = {}
-        for i, num in enumerate(nums):
-            if target - num in num_set:
-                return [num_set[target - num], i]
-            num_set[num] = i
-
-    def twoSumValues(self, nums, target):
-        hash_set = []
-        for i, enum_value in enumerate(nums):
-            if target - enum_value in hash_set:
-                return [target - enum_value, nums[i]]
-            hash_set.append(enum_value)
-
-
-out = Solution()
-print(out.twoSumIndex([1, 32, 33, 12, 44, 3, 7, 90, 5, 5, 0, 4], 9))
-print(out.twoSumValues([1, 32, 33, 12, 44, 3, 7, 90, 5, 5, 0, 4], 9))
+arr_values = [1, 20, 4, 12, 6, 70, 7, 90, 5, 2, 0, 4]
+k_values = 9
+print(f"Индекс искомых хначений: {Solution.find_sum_index(arr_values, k_values)}")
+print(f"Сами числа: {Solution.find_sum(arr_values, k_values)}")
