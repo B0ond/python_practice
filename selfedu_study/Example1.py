@@ -37,7 +37,7 @@ class Person:
 
     @classmethod
     def verify_age(cls, age):
-        if not isinstance(age, int) and 14 > age > 120:
+        if type(age) != int or 14 > age > 120:
             raise TypeError("Возраст должен быть от 14 до 120 в цифрах")
 
     @classmethod
@@ -45,8 +45,13 @@ class Person:
         if type(weight) != float or weight < 20:
             return TypeError("Вес должен быть вещественным числом от 20 и выше")
 
-    # @classmethod
-    # def verify_pasport(cls, passport):
+    @classmethod
+    def verify_pasport(cls, passport):  # с хера не работает класс как исключение! наверное не вызвал! потом решу!
+        if type(passport) != str:
+            raise TypeError("Паспорт должен быть строкой")
+        s = passport.split()
+        if len(s) != 2 or len(s[0]) != 4 or len(s[1]) != 6:
+            raise TypeError("Неверный формат паспорта")
 
 
 x = Person("Ялалтдинов Амирам Мухарьямович", 27, '44567 345678', 78.7)
