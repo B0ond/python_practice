@@ -9,6 +9,7 @@ class Person:
         self.verify_fio(fio)
         self.verify_age(age)
         self.verify_weight(weight)
+        self.verify_pasport(passport)
 
         self.__fio = fio  # str
         self.__age = age  # int 14 <= fio <= 120
@@ -54,4 +55,4 @@ class Person:
             raise TypeError("Неверный формат паспорта")
 
 
-x = Person("Ялалтдинов Амирам Мухарьямович", 27, '44567 345678', 78.7)
+x = Person("Ялалтдинов Амирам Мухарьямович", 27, '4457 345678', 78.7)

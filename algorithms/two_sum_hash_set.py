@@ -3,7 +3,7 @@
 
 
 class Solution(object):
-    """метод для поиска индексов"""
+    """Метод для поиска индексов"""
     def twoSumIndex(self, nums: list[int], target: int) -> list[int]:
         num_set = {}
         for i, num in enumerate(nums):
@@ -12,7 +12,7 @@ class Solution(object):
             num_set[num] = i
 
     def twoSumValues(self, nums: list[int], target: int) -> list[int]:
-        """метод для поиска значений"""
+        """Метод для поиска значений"""
         hash_set = []
         for enum_value in nums:
             if target - enum_value in hash_set:
