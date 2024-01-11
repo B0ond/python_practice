@@ -60,7 +60,7 @@ class Point3D:
     # def z(self, coord):
     #     self.verify_coord(coord)
     #     self._z = coord
-
+#push it from smartbot
 
 p = Point3D(4, 2, 3)
 print(p.__dict__)
