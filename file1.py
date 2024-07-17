@@ -33,8 +33,13 @@
 #
 # out = Stack()
 
-def modif_str(stroka:str):
-    return stroka[1:-1]
+class sulution:
+    def twoSum(self, nums: list, target: int) -> list:
+        hash_map = {}
+        for i in range(len(nums)):
+            if target - nums[i] in hash_map:
+                return [hash_map[target - nums[i]], i]
+            hash_map[nums[i]] = i
 
-
-print(modif_str('A1234567A'))
+x = sulution()
+print(x.twoSum([7,7,11,15,2], 9))
