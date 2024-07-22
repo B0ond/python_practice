@@ -33,13 +33,9 @@
 #
 # out = Stack()
 
-class sulution:
-    def twoSum(self, nums: list, target: int) -> list:
-        hash_map = {}
-        for i in range(len(nums)):
-            if target - nums[i] in hash_map:
-                return [hash_map[target - nums[i]], i]
-            hash_map[nums[i]] = i
+def iteration(iter):
+    for i in iter:
+        return i
 
-x = sulution()
-print(x.twoSum([7,7,11,15,2], 9))
+
+print(iteration([4,5,6]))
